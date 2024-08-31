@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="style.css">
+    <title>Vector Calculator</title>
+</head>
+
+<body>
+    <h1>Vector Calculator</h1>
+    
+    <div class="vect">
+        <p>Vector A</p>
+        <div class="vector-group">
+            <div class="input-group">
+                <label for="ax">X:</label>
+                <input type="text" id="ax">
+            </div>
+            <div class="input-group">
+                <label for="ay">Y:</label>
+                <input type="text" id="ay">
+            </div>
+            <div class="input-group">
+                <label for="az">Z:</label>
+                <input type="text" id="az">
+            </div>
+        </div>
+        <p>Vector B</p>
+        <div class="vector-group">
+            <div class="input-group">
+                <label for="bx">X:</label>
+                <input type="text" id="bx">
+            </div>
+            <div class="input-group">
+                <label for="by">Y:</label>
+                <input type="text" id="by">
+            </div>
+            <div class="input-group">
+                <label for="bz">Z:</label>
+                <input type="text" id="bz">
+            </div>
+        </div>
+    </div>
+    <div class="operation">
+        <label for="operation">Operation:</label>
+        <select id="operation">
+            <option value="add">Add</option>
+            <option value="subtract">Subtract</option>
+            <option value="dot">Dot Product</option>
+            <option value="cross">Cross Product</option>
+        </select>
+    </div>
+    
+    <button id="calc" onmouseup="calc();">Calculate</button>
+    <div id="results"></div>
+
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
