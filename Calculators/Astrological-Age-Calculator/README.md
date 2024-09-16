@@ -2,7 +2,7 @@
 
 ## Description :-
 
-This is a simple calculator that gives back the age of the user on different planets as selected by the user.
+Calculates the Body Mass Index of a person.
 
 ## Tech Stacks :-
 
