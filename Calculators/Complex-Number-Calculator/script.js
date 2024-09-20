@@ -42,6 +42,7 @@ function divide() {
         var imaginary2 = parseFloat(document.getElementById('imaginary2').value);
         if (real2 === 0 && imaginary2 === 0) {
             document.getElementById('result').innerHTML = 'Cannot divide by zero';
+            document.getElementById('result').style.display = 'block';
             return;
         }
         var denominator = real2 * real2 + imaginary2 * imaginary2;
@@ -56,18 +57,19 @@ function reset() {
     document.getElementById('imaginary1').value = '';
     document.getElementById('real2').value = '';
     document.getElementById('imaginary2').value = '';
-    document.getElementById('result').style.display = 'None';
+    document.getElementById('result').innerHTML = '';
+    document.getElementById('result').style.display = 'none';
 }
 
 function validateInput() {
     var real1 = document.getElementById('real1').value;
     var imaginary1 = document.getElementById('imaginary1').value;
     var real2 = document.getElementById('real2').value;
+    var imaginary2 = document.getElementById('imaginary2').value;
     var result = document.getElementById('result');
 
-    var imaginary2 = document.getElementById('imaginary2').value;
     if (real1 === '' || imaginary1 === '' || real2 === '' || imaginary2 === '') {
-        document.getElementById('result').innerText = 'Enter a valid value';
+        result.innerHTML = 'Enter a valid value';
         result.style.display = 'block';
         return false;
     }
@@ -76,13 +78,15 @@ function validateInput() {
 
 function displayResult(real, imaginary) {
     var result = document.getElementById('result');
-    var rectForm = 'Rectangular Form: ' + real + ' + ' + imaginary + 'i<br>';
+    var rectForm = 'Result: ' + real.toFixed(2) + ' + ' + imaginary.toFixed(2) + 'i<br>';
+    
     var magnitude = Math.sqrt(real * real + imaginary * imaginary);
     var angle = Math.atan2(imaginary, real);
     var polarForm = 'Polar Form: ' + magnitude.toFixed(2) + ' * (cos(' + angle.toFixed(2) + ') + i * sin(' + angle.toFixed(2) + '))';
+    
     result.innerHTML = rectForm + polarForm;
     result.style.display = 'block';
-
 }
+
 
 
