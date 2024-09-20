@@ -1,24 +1,26 @@
 function calculateBayesianTheorem() {
-    // Get values from input fields
-    var probabilityA = parseFloat(document.getElementById("probabilityA").value);
-    var probabilityBGivenA = parseFloat(document.getElementById("probabilityBGivenA").value);
-    var probabilityNotA = parseFloat(document.getElementById("probabilityNotA").value);
+    // Get input values
+    const pA = parseFloat(document.getElementById('probabilityA').value);
+    const pBGivenA = parseFloat(document.getElementById('probabilityBGivenA').value);
+    const pNotA = parseFloat(document.getElementById('probabilityNotA').value);
 
-    // Validate input
-    if (
-        isNaN(probabilityA) || isNaN(probabilityBGivenA) || isNaN(probabilityNotA) ||
-        probabilityA < 0 || probabilityBGivenA < 0 || probabilityNotA < 0 ||
-        probabilityA > 1 || probabilityBGivenA > 1 || probabilityNotA > 1
-    ) {
-        alert("Please enter valid probabilities between 0 and 1.");
+    // Validate inputs
+    if (isNaN(pA) || isNaN(pBGivenA) || isNaN(pNotA)) {
+        document.getElementById('result').innerText = 'Please enter valid numbers for all probabilities.';
         return;
     }
 
-    // Calculate Bayesian Theorem
-    var probabilityB = (probabilityBGivenA * probabilityA) + ((1 - probabilityA) * probabilityNotA);
-    var probabilityAGivenB = (probabilityBGivenA * probabilityA) / probabilityB;
+    if (pA < 0 || pA > 1 || pBGivenA < 0 || pBGivenA > 1 || pNotA < 0 || pNotA > 1) {
+        document.getElementById('result').innerText = 'Probabilities must be between 0 and 1.';
+        return;
+    }
 
-    // Display the result
-    document.getElementById("result").innerHTML =
-        "P(A|B) ≈ " + probabilityAGivenB.toFixed(4);
+    // Calculate P(B)
+    const pB = (pBGivenA * pA) + (1 - pNotA) * (1 - pA);
+
+    // Calculate P(A|B) using Bayes' Theorem
+    const pAGivenB = (pBGivenA * pA) / pB;
+
+    // Display result
+    document.getElementById('result').innerText = `P(A|B) = ${pAGivenB.toFixed(4)}`;
 }

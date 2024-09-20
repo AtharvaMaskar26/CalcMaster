@@ -14,15 +14,15 @@
         <h1>Bayes Theorem Calculator</h1>
         <div>
             <label for="probabilityA">P(A):</label>
-            <input type="number" id="probabilityA" placeholder="Enter P(A)">
+            <input type="number" id="probabilityA" placeholder="Enter P(A)" step="0.01" min="0" max="1">
         </div>
         <div>
             <label for="probabilityBGivenA">P(B|A):</label>
-            <input type="number" id="probabilityBGivenA" placeholder="Enter P(B|A)">
+            <input type="number" id="probabilityBGivenA" placeholder="Enter P(B|A)" step="0.01" min="0" max="1">
         </div>
         <div>
             <label for="probabilityNotA">P(~A):</label>
-            <input type="number" id="probabilityNotA" placeholder="Enter P(~A)">
+            <input type="number" id="probabilityNotA" placeholder="Enter P(~A)" step="0.01" min="0" max="1">
         </div>
         <button onclick="calculateBayesianTheorem()">Calculate P(A|B)</button>
         <div id="result"></div>
